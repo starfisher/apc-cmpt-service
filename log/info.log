@@ -1,0 +1,22 @@
+2023-02-11 17:43:46,001 - werkzeug - INFO -  * Restarting with windowsapi reloader
+2023-02-11 17:43:46,836 - werkzeug - WARNING -  * Debugger is active!
+2023-02-11 17:43:46,848 - werkzeug - INFO -  * Debugger PIN: 683-279-349
+2023-02-11 17:43:46,876 - werkzeug - INFO -  * Running on http://0.0.0.0:8089/ (Press CTRL+C to quit)
+2023-02-11 17:43:59,147 - werkzeug - INFO -  * Restarting with windowsapi reloader
+2023-02-11 17:43:59,938 - werkzeug - WARNING -  * Debugger is active!
+2023-02-11 17:43:59,949 - werkzeug - INFO -  * Debugger PIN: 683-279-349
+2023-02-11 17:43:59,977 - werkzeug - INFO -  * Running on http://0.0.0.0:8089/ (Press CTRL+C to quit)
+2023-02-11 17:44:30,620 - werkzeug - INFO -  * Restarting with windowsapi reloader
+2023-02-11 17:44:31,426 - werkzeug - WARNING -  * Debugger is active!
+2023-02-11 17:44:31,438 - werkzeug - INFO -  * Debugger PIN: 683-279-349
+2023-02-11 17:44:31,466 - werkzeug - INFO -  * Running on http://0.0.0.0:8089/ (Press CTRL+C to quit)
+2023-02-11 17:44:37,644 - root - ERROR - Traceback (most recent call last):
+  File "D:\program_dev\Py_project\apc-cmpt-service\main.py", line 27, in cmpt_run
+    cmpt = __import__("cmpt." + subpath.replace('//', '/.'))
+ModuleNotFoundError: No module named 'cmpt.apc-module-02dsfdg'
+
+2023-02-11 17:44:37,646 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2023 17:44:37] "[37mGET /cmpt/run/apc-module-02dsfdg HTTP/1.1[0m" 200 -
+2023-02-11 17:45:57,448 - werkzeug - INFO -  * Restarting with windowsapi reloader
+2023-02-11 17:45:58,267 - werkzeug - WARNING -  * Debugger is active!
+2023-02-11 17:45:58,279 - werkzeug - INFO -  * Debugger PIN: 683-279-349
+2023-02-11 17:45:58,309 - werkzeug - INFO -  * Running on http://0.0.0.0:8089/ (Press CTRL+C to quit)
