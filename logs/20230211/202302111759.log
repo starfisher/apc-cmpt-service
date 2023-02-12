@@ -1,3 +1,0 @@
-[2023-02-11 17:59:19,680] [test.py] [Pid:49244] [INFO] This is info
-[2023-02-11 17:59:19,680] [test.py] [Pid:49244] [DEBUG] This is debug
-[2023-02-11 17:59:19,680] [test.py] [Pid:49244] [ERROR] This is error

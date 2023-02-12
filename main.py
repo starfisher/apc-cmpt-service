@@ -1,12 +1,11 @@
 import os
+import sys
 import traceback
-import yaml
 
-import logging.config
+from loguru import logger
 
 from flask import Flask, request
 from flask_cors import CORS
-# from logger import logger
 
 from src.json_flask import JsonFlask
 from src.json_response import JsonResponse
@@ -26,7 +25,7 @@ def cmpt_run(subpath):
     try:
         cmpt = __import__("cmpt." + subpath.replace('//', '/.'))
     except ModuleNotFoundError as e:
-        logging.error(traceback.format_exc())
+        logger.error(traceback.format_exc())
         return JsonResponse.error(msg=str("can not find service in this path: {}".format(e)))
 
     if hasattr(cmpt, filename):
@@ -40,7 +39,7 @@ def cmpt_run(subpath):
             data = func_proc(fun_class)
             return {"value": data}
         except BaseException as e:
-            logging.error(traceback.format_exc())
+            logger.error(traceback.format_exc())
             return JsonResponse.error(msg=str("failed, process exec failed: {}".format(e)))
     else:
         return JsonResponse.error(msg=str("error, can not find main function in service."))
@@ -56,21 +55,16 @@ def cmpt_upload():
     return {"api-url": 'http://127.0.0.1:8089/cmpt/run/' + file_name}
 
 
-def setup_logging(default_path="logging.yaml", default_level=logging.INFO, env_key="LOG_CFG"):
-    path = default_path
-    value = os.getenv(env_key, None)
-    if value:
-        path = value
-    if os.path.exists(path):
-        with open(path, "r") as f:
-            config = yaml.load(f)
-            logging.config.dictConfig(config)
-    else:
-        logging.basicConfig(level=default_level)
+def setup_logging():
+    logger.add(sys.stderr, format="{time} {level} {message}", level="DEBUG")
+    logger.add("log/log_info.log", backtrace=True, diagnose=True, format="{time} {level}  {message}", level="INFO", rotation="11:45")
+    logger.add("log/log_error.log", backtrace=True, diagnose=True, format="{time} {level} {message}", level="ERROR", rotation="11:45")
 
 
 if __name__ == '__main__':
-    setup_logging(default_path="config/logging.yaml")
+    setup_logging()
+    logger.info("程序启动")
     app.run(host='0.0.0.0', port=8089, debug=True)
+
 
 

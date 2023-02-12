@@ -1,5 +1,0 @@
-2023-02-11 17:44:37,644 - root - ERROR - Traceback (most recent call last):
-  File "D:\program_dev\Py_project\apc-cmpt-service\main.py", line 27, in cmpt_run
-    cmpt = __import__("cmpt." + subpath.replace('//', '/.'))
-ModuleNotFoundError: No module named 'cmpt.apc-module-02dsfdg'
-
