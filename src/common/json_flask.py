@@ -3,7 +3,7 @@
 
 from flask import Flask, jsonify
 
-from src.json_response import JsonResponse
+from src.common.json_response import JsonResponse
 
 
 class JsonFlask(Flask):
